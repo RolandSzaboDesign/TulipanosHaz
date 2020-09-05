@@ -542,6 +542,7 @@ main * {
 
 .column--center .column__body {
 	min-height: 400px;
+	background-position: center center;
 }
 
 .column__footer {
