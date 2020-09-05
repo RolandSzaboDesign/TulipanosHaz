@@ -815,6 +815,9 @@ main * {
 		border-left: 0;
 		border-right: 0;
 	}
+	.column--center .column__body {
+		min-height: initial;
+	}
 	.article {
 		max-width: initial;
 		box-shadow: none;
