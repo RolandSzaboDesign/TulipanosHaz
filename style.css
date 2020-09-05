@@ -472,14 +472,6 @@ main .container {
 	position: relative;
 }
 
-main .container:after {
-	content: '';
-	position: absolute;
-	z-index: 0;
-	top: -3rem;
-	right: -3rem;
-}
-
 main * {
 	position: relative;
 	z-index: 1;
@@ -493,11 +485,11 @@ main * {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	color: var(--bg);
 }
 
 .header {
 	padding: 10px;
+	color: var(--bg);
 	letter-spacing: -.25px;
 	text-align: center;
 	background-color: var(--text);
@@ -505,6 +497,7 @@ main * {
 
 .header__contact {
 	margin-bottom: 0;
+	font-size: 16px;
 }
 
 .main {
@@ -524,7 +517,7 @@ main * {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 230px;
+	height: 200px;
 	padding: 10px;
 }
 
@@ -548,9 +541,10 @@ main * {
 .column--center .column__body { background-image: url('images/CenterImage.jpg'); }
 
 .column__footer {
-	height: 80px;
+	height: 43px;
 	background-repeat: repeat-x;
 	background-position: top left;
+	background-size: 60px;
 }
 
 .column--left .column__footer   { background-image: url('images/LeftPattern.jpg'); }
@@ -577,6 +571,7 @@ main * {
 .article {
 	max-width: 610px;
 	padding: 20px 25px;
+	color: var(--bg);
 	letter-spacing: -.5px;
 	background-color: var(--text-light);
 	box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
@@ -616,7 +611,8 @@ main * {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px 30px;
+	padding: 15px calc(26vw + 25px) 15px 30px;
+	color: var(--bg);
 	letter-spacing: -.25px;
 	background-color: var(--text);
 }
@@ -628,13 +624,10 @@ main * {
 	padding: 5px 0;
 }
 
-.disclaimer,
-.footer-nav {
-	margin: 5px 10px;
-}
-
 .disclaimer {
 	margin-right: 25px;
+	margin-bottom: 8px;
+	font-size: 16px;
 	line-height: 1.25;
 }
 
@@ -645,7 +638,6 @@ main * {
 
 .footer-nav__link {
 	padding: 0 15px;
-	font-size: 20px;
 	color: var(--bg);
 	line-height: 1.25;
 	text-decoration: none;
@@ -666,45 +658,73 @@ main * {
 
 .footer__logo {
 	display: flex;
+	margin-left: 20px;
 	border: 0;
-	margin-left: 30px;
+}
+
+.footer__logo img {
+	max-height: 50px;
 }
 
 .szechenyi {
 	position: absolute;
+	z-index: 1;
 	right: 0;
 	bottom: 0;
-	width: 27vw;
+	max-width: 27vw;
+	max-height: 250px;
 }
 
-.szechenyi--footer { display: none; }
 
 
+/* Coming Soon, TEMP */
 
-/* Coming Soon */
+.main-header {
+	position: relative;
+	z-index: 2;
+	box-shadow: 0 3px 10px 0 rgba(0,0,0,.125);
+}
+
+.main-header .container {
+	display: flex;
+	justify-content: center;
+}
+
+.logo {
+	display: flex;
+	border: 0;
+	padding: 25px;
+}
+
+.logo__image {
+	height: 200px;
+}
+
+.page-comingsoon h1,
+.page-comingsoon h2 {
+	font-size: 2rem;
+}
+
+.page-comingsoon main {
+	overflow: hidden;
+	display: block;
+	padding: 4rem 0 15vw;
+	box-shadow: none;
+}
 
 .page-comingsoon main .container:after {
+	content: '';
+	position: absolute;
+	z-index: 0;
+	top: -2rem;
+	left: calc(50% - 454px);
 	width: 908px;
 	height: 564px;
 	background: url('images/bg-teremberles.png') top right no-repeat;
 }
 
-.page-comingsoon .main-footer { background-image: url('images/pattern-teremberles.png'); }
-
-.page-comingsoon .main-header .container {
-	justify-content: center;
-}
-
-.page-comingsoon .logo {
-	padding: 25px;
-}
-
-.page-comingsoon .logo__image {
-	height: auto;
-}
-
-.page-comingsoon h1 {
-	margin-bottom: 2.5rem;
+.page-comingsoon .footer {
+	position: relative;
 }
 
 .comingsoon-stripes {
@@ -729,19 +749,12 @@ main * {
 /* Media Queries */
 
 @media only screen and (max-width: 1199px) {
-	.header__contact {
-		font-size: 16px;
-	}
 	.article__title {
 		font-size: 32px;
 		letter-spacing: -.25px;
 	}
 	.article__intro {
 		font-size: 18px;
-	}
-	.disclaimer,
-	.footer-nav__link {
-		font-size: 16px;
 	}
 }
 
@@ -750,10 +763,10 @@ main * {
 	.main {
 		flex-direction: column;
 	}
-	.szechenyi--main { display: none; }
 	.szechenyi--footer {
-		display: block;
 		width: 50vw;
+		max-width: inherit;
+		max-height: inherit;
 	}
 	.column {
 		flex-direction: row;
@@ -791,7 +804,7 @@ main * {
 		position: relative;
 		flex-direction: column;
 		align-items: flex-start;
-		padding-top: 60px;
+		padding: 60px 30px 15px;
 		background: var(--text) url('images/CenterPattern.jpg') top left repeat-x;
 		background-size: 60px;
 	}
@@ -799,7 +812,6 @@ main * {
 		justify-content: center;
 		width: 50%;
 		margin: 0;
-		padding-bottom: 15px;
 		text-align: center;
 	}
 	.disclaimer {
@@ -823,10 +835,9 @@ main * {
 		align-items: center;
 		order: -1;
 		width: 50%;
-		padding-top: 15px;
 	}
 	.footer__logo {
-		margin: 10px;
+		padding: 8px;
 	}
 }
 
@@ -854,10 +865,17 @@ main * {
 		font-size: 26px;
 	}
 	.footer {
-		padding-bottom: 35vw;
+		padding: 50px 20px 35vw;
+		background-size: 50px;
 	}
 	.footer__left,
 	.footer__right {
 		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.column--left, .column--right {
+		min-height: 200px;
 	}
 }
