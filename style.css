@@ -388,6 +388,7 @@ label[for] {
 .radbox {
 	display: flex;
 	align-items: center;
+	line-height: 1.25;
 }
 
 .radbox input {
@@ -632,10 +633,12 @@ main * {
 
 .disclaimer {
 	margin-right: 25px;
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 	font-size: 16px;
 	line-height: 1.25;
 }
+
+.disclaimer br { display: none; }
 
 .footer-nav {
 	display: flex;
@@ -672,7 +675,7 @@ main * {
 }
 
 .footer__logo img {
-	max-height: 50px;
+	max-height: 46px;
 }
 
 .szechenyi {
@@ -733,7 +736,7 @@ main * {
 
 .page-comingsoon .footer {
 	padding-top: 60px;
-	background: var(--text) url('images/CenterPattern.jpg') top left repeat-x;
+	background: var(--text) url('images/CenterPattern.jpg') top center repeat-x;
 	background-size: 60px;
 }
 
@@ -773,8 +776,9 @@ main * {
 		padding-right: 360px;
 	}
 	.disclaimer {
-		font-size: 14px;
+		line-height: 1.4;
 	}
+	.disclaimer br { display: block; }
 	.szechenyi {
 		width: 350px;
 	}
@@ -861,6 +865,9 @@ main * {
 	}
 	.footer__logo {
 		padding: 8px;
+	}
+	.footer__logo:not(:first-of-type) {
+		margin: 0;
 	}
 	.szechenyi {
 		width: 50vw;
